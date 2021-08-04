@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   trigerBtn.forEach(btn => {
     btn.addEventListener('click', () => {
       modal.classList.add('show');
+      modal.classList.remove('hide');
     });
   });
 
