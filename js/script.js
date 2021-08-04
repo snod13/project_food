@@ -99,15 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   trigerBtn.forEach(btn => {
     btn.addEventListener('click', () => {
-      modal.classList.add('show');
-      modal.classList.remove('hide');
+      modal.classList.toggle('show');
+      // modal.classList.add('show');
+      // modal.classList.remove('hide');
       document.body.style.overflow = 'hidden';
     });
   });
 
   closeBtn.addEventListener('click', () => {
-    modal.classList.add('hide');
-    modal.classList.remove('show');
+    modal.classList.toggle('show');
+    // modal.classList.add('hide');
+    // modal.classList.remove('show');
     document.body.style.overflow = '';
   });
 });
