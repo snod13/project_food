@@ -91,4 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setClock('.timer', deadline);
+
+  //Модальное окно
+  const modal = document.querySelector('.modal'),
+        closeBtn = modal.querySelector('[data-close]'),
+        trigerBtn = document.querySelectorAll('[data-modal]');
+
+  trigerBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modal.style.display = 'block';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
 });
