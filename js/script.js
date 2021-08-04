@@ -99,11 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   trigerBtn.forEach(btn => {
     btn.addEventListener('click', () => {
-      modal.style.display = 'block';
+      modal.classList.add('show');
     });
   });
 
   closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modal.classList.add('hide');
+    modal.classList.remove('show');
   });
 });
