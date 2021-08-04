@@ -101,11 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       modal.classList.add('show');
       modal.classList.remove('hide');
+      document.body.style.overflow = 'hidden';
     });
   });
 
   closeBtn.addEventListener('click', () => {
     modal.classList.add('hide');
     modal.classList.remove('show');
+    document.body.style.overflow = '';
   });
 });
