@@ -289,20 +289,20 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSlide = document.querySelector('#current'),
         slideImgs = document.querySelectorAll('.offer__slide');
   
-  let id = 0;
+  let idSlide = 0;
 
   slideImgs.forEach(img => img.classList.add('hide'));
 
-  changeVisibleSlideSlide(id);
+  changeVisibleSlideSlide(idSlide);
   
-  function changeVisibleSlideSlide(id) {
+  function changeVisibleSlideSlide(idSlide) {
 
-    let count = '' + id;
+    let count = '' + idSlide;
     let total = String(slideImgs.length);
 
     if (count.length < 2) {
-      count = `0${id + 1}`;
-    } else { count = `${id + 1}`; }
+      count = `0${idSlide + 1}`;
+    } else { count = `${idSlide + 1}`; }
 
     if (total.length < 2) {
       total = `0${total}`;
@@ -311,41 +311,41 @@ document.addEventListener('DOMContentLoaded', () => {
     currentSlide.textContent = count;
     totalSlides.textContent = total;
 
-    showSlide(id);
+    showSlide(idSlide);
   }
 
-  function showSlide(id) {
-    slideImgs[id].classList.remove('hide');
-    slideImgs[id].classList.add('show');
+  function showSlide(idSlide) {
+    slideImgs[idSlide].classList.remove('hide');
+    slideImgs[idSlide].classList.add('show');
   }
-  function hideSlide(id) {
-    slideImgs[id].classList.remove('show');
-    slideImgs[id].classList.add('hide');
+  function hideSlide(idSlide) {
+    slideImgs[idSlide].classList.remove('show');
+    slideImgs[idSlide].classList.add('hide');
   }
 
   prevSlide.addEventListener('click', () => {
 
-    hideSlide(id);
+    hideSlide(idSlide);
 
-    id--;
+    idSlide--;
 
-    if (id < 0) {
-      id = slideImgs.length - 1;
+    if (idSlide < 0) {
+      idSlide = slideImgs.length - 1;
     }
-    changeVisibleSlideSlide(id);
+    changeVisibleSlideSlide(idSlide);
 
   });
 
   nextSlide.addEventListener('click', () => {
 
-    hideSlide(id);
+    hideSlide(idSlide);
 
-    id++;
+    idSlide++;
 
-    if (id > slideImgs.length - 1) {
-      id = 0;
+    if (idSlide > slideImgs.length - 1) {
+      idSlide = 0;
     }
     
-    changeVisibleSlideSlide(id);
+    changeVisibleSlideSlide(idSlide);
   });
 });
