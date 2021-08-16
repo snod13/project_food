@@ -333,11 +333,28 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.push(dot);
   }
 
+  function dotChangeOpacity(dots, id) {
+    dots.forEach(dot => dot.style.opacity = '.5');
+    dots[id - 1].style.opacity = '1';
+  }
+
+  function currentSlideChange(slides, id) {
+    if (slides.length < 10) {
+      currentSlide.textContent = `0${id}`;
+    } else {
+      currentSlide.textContent = id;
+    }
+  }
+
+  function strToNum(str) {
+    return +str.replace(/\D/g, '');
+  }
+
   nextSlide.addEventListener('click', () => {
-    if (offset == +width.slice(0, width.length - 2) * (slideImgs.length - 1)){
+    if (offset == strToNum(width) * (slideImgs.length - 1)){
       offset = 0;
     } else {
-      offset += +width.slice(0, width.length - 2);
+      offset += strToNum(width);
     }
 
     slidesField.style.transform = `translateX(-${offset}px`;
@@ -355,9 +372,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   prevSlide.addEventListener('click', () => {
     if (offset == 0){
-      offset = +width.slice(0, width.length - 2) * (slideImgs.length - 1);
+      offset = strToNum(width) * (slideImgs.length - 1);
     } else {
-      offset -= +width.slice(0, width.length - 2);
+      offset -= strToNum(width);
     }
 
     slidesField.style.transform = `translateX(-${offset}px`;
@@ -378,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const slideTo = e.target.getAttribute('data-slide-to');
 
       idSlide = slideTo;
-      offset = +width.slice(0, width.length - 2) * (slideTo - 1);
+      offset = strToNum(width) * (slideTo - 1);
 
       slidesField.style.transform = `translateX(-${offset}px`;
 
@@ -387,17 +404,4 @@ document.addEventListener('DOMContentLoaded', () => {
       dotChangeOpacity(dots, idSlide);
     });
   });
-
-  function dotChangeOpacity(dots, id) {
-    dots.forEach(dot => dot.style.opacity = '.5');
-    dots[id - 1].style.opacity = '1';
-  }
-
-  function currentSlideChange(slides, id) {
-    if (slides.length < 10) {
-      currentSlide.textContent = `0${id}`;
-    } else {
-      currentSlide.textContent = id;
-    }
-  }
 });
