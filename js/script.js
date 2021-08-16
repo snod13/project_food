@@ -293,9 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   slideImgs.forEach(img => img.classList.add('hide'));
 
-  changeVisibleSlideSlide(idSlide);
+  changeVisibleSlide(idSlide);
   
-  function changeVisibleSlideSlide(idSlide) {
+  function changeVisibleSlide(idSlide) {
 
     let count = '' + idSlide;
     let total = String(slideImgs.length);
@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (idSlide < 0) {
       idSlide = slideImgs.length - 1;
     }
-    changeVisibleSlideSlide(idSlide);
+    changeVisibleSlide(idSlide);
 
   });
 
@@ -346,6 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
       idSlide = 0;
     }
     
-    changeVisibleSlideSlide(idSlide);
+    changeVisibleSlide(idSlide);
   });
 });
